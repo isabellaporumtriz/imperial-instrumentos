@@ -13,7 +13,7 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://imperialinstrumentos.com.br"), // troque pelo domínio real quando publicar
+  metadataBase: new URL("https://imperial-instrumentos.vercel.app/"), // troque pelo domínio real quando publicar
 
   title: "Instrumentos Musicais Imperial",
 
