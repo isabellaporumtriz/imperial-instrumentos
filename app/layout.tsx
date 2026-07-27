@@ -47,7 +47,7 @@ export const metadata: Metadata = {
 
     locale: "pt_BR",
 
-    url: "https://imperialinstrumentos.com.br",
+    url: "https://imperial-instrumentos.vercel.app/",
 
     siteName: "Instrumentos Musicais Imperial",
 
