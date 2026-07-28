@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 
 import { motion } from "motion/react";
+import type { FormEvent } from "react";
 
 const services = [
   {
@@ -158,6 +159,50 @@ const formItem = {
 };
 
 export default function Services() {
+  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+
+    const form = new FormData(event.currentTarget);
+
+    const nome = form.get("name");
+    const whatsapp = form.get("whatsapp");
+    const cidade = form.get("city");
+    const igreja = form.get("church");
+    const tipoEvento = form.get("eventType");
+    const dataEvento = form.get("eventDate");
+    const pessoas = form.get("people");
+    const observacoes = form.get("observations");
+
+    const necessidades = form.getAll("needs").join(", ");
+
+    const mensagem = `📩 *NOVO ORÇAMENTO PELO SITE*
+
+👤 *Nome:* ${nome}
+📱 *WhatsApp:* ${whatsapp}
+📍 *Cidade:* ${cidade}
+⛪ *Igreja / Ministério:* ${igreja || "Não informado"}
+
+━━━━━━━━━━━━━━
+
+🎤 *Tipo de evento:* ${tipoEvento || "Não informado"}
+📅 *Data:* ${dataEvento || "Não informada"}
+👥 *Público estimado:* ${pessoas || "Não informado"}
+
+🎛️ *Serviços desejados:*
+${necessidades || "Nenhum informado"}
+
+📝 *Observações:*
+${observacoes || "Nenhuma"}
+
+Enviado pelo site da Instrumentos Musicais Imperial.`;
+
+    const whatsappUrl = `https://wa.me/5512997411838?text=${encodeURIComponent(
+      mensagem,
+    )}`;
+
+    window.open(whatsappUrl, "_blank", "noopener,noreferrer");
+  }
+
   return (
     <section
       id="servicos"
@@ -356,7 +401,7 @@ export default function Services() {
                 once: true,
               }}
               className="relative z-10 flex flex-1 flex-col gap-4"
-              onSubmit={(event) => event.preventDefault()}
+              onSubmit={handleSubmit}
             >
               <motion.div variants={formItem} className="space-y-3">
                 <input
