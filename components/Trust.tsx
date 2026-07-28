@@ -12,19 +12,19 @@ import { motion } from "motion/react";
 const metrics = [
   {
     icon: Building2,
-    number: "+30",
+    number: "+1.500",
     title: "Igrejas",
     description: "atendidas",
   },
   {
     icon: SlidersHorizontal,
-    number: "+100",
+    number: "+600",
     title: "Projetos",
     description: "realizados",
   },
   {
     icon: Speaker,
-    number: "+500",
+    number: "+1M",
     title: "Equipamentos",
     description: "entregues",
   },
